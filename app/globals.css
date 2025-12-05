@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --background: #0f172a;
+    --foreground: #e2e8f0;
+}
+
+body {
+    color: var(--foreground);
+    background: var(--background);
+    font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+
+    .glass-panel {
+        @apply bg-slate-900/70 backdrop-blur-md border border-white/10 shadow-xl;
+    }
+}
