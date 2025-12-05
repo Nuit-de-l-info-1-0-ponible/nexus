@@ -26,24 +26,13 @@ export default function NexusForm({ onSubmit }: NexusFormProps) {
     e.preventDefault();
     setIsSubmitting(true);
 
-    try {
-      const response = await fetch("/api/nexus", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, mission }),
-      });
-
-      if (response.ok) {
-        onSubmit({ ...formData, mission });
-      } else {
-        alert("Erreur lors de la transmission. Veuillez réessayer.");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      alert("Erreur de connexion au Nexus.");
-    } finally {
-      setIsSubmitting(false);
-    }
+    // Simulation pour Export Statique (GitHub Pages)
+    // L'API Route ne fonctionne pas sans serveur Node.js
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    console.log("Formulaire soumis (Mode Statique):", { ...formData, mission });
+    onSubmit({ ...formData, mission });
+    setIsSubmitting(false);
   };
 
   return (
